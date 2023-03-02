@@ -5,7 +5,7 @@ import util from "../styles/util.module.css";
 import ContactContent from "../components/contactContent";
 import ExpTile from "../components/tiles/expTile";
 import Script from "next/script";
-const { Client } = require("@notionhq/client");
+// const { Client } = require("@notionhq/client");
 import Tile from "../components/tiles/tile";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
@@ -24,7 +24,7 @@ export default function About({ list }) {
   }, []);
 
   const description =
-    "I’m a designer and developer by training and trade. I spend most of my spare time reading about business, finance and crypto. If this combination interests you, welcome to my corner of the internet. This is where I share my reading list, investment updates, and software adventures.";
+    "I’m a designer and developer by training and trade. I spend most of my spare time reading about philosophy, finance, and startups. If this combination interests you, welcome to my corner of the internet. This is where I share my reading list, investment updates, and software adventures.";
   return (
     <>
       <Head>
@@ -368,33 +368,33 @@ export default function About({ list }) {
   );
 }
 //notion API
-export async function getStaticProps() {
-  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+// export async function getStaticProps() {
+//   const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-  const response = await notion.databases.query({
-    database_id: process.env.NOTION_RECENTS_ID,
-    filter: {
-      and: [
-        {
-          property: "Display",
-          checkbox: {
-            equals: true,
-          },
-        },
-      ],
-    },
-    sorts: [
-      {
-        property: "Time",
-        direction: "descending",
-      },
-    ],
-  });
+//   const response = await notion.databases.query({
+//     database_id: process.env.NOTION_RECENTS_ID,
+//     filter: {
+//       and: [
+//         {
+//           property: "Display",
+//           checkbox: {
+//             equals: true,
+//           },
+//         },
+//       ],
+//     },
+//     sorts: [
+//       {
+//         property: "Time",
+//         direction: "descending",
+//       },
+//     ],
+//   });
 
-  return {
-    props: {
-      list: response.results,
-    },
-    revalidate: 5,
-  };
-}
+//   return {
+//     props: {
+//       list: response.results,
+//     },
+//     revalidate: 5,
+//   };
+// }

@@ -68,9 +68,9 @@ export default function Menu() {
           <p className={styles.divider}>Stay in touch</p>
           <Contact svg="chat" label="Contact" shortcut="/" />
           <NavLink
-            svg="twitter"
-            href="https://twitter.com/sjzhang_"
-            label="Twitter"
+            svg="linkedin"
+            href="https://linkedin.com/alexstauffer"
+            label="LinkedIn"
             external="true"
           />
         </nav>

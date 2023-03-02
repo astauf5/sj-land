@@ -1,7 +1,7 @@
 import Head from "next/head";
 import util from "../styles/util.module.css";
 import GoodsTile from "../components/tiles/goodsTile";
-const { Client } = require("@notionhq/client");
+// const { Client } = require("@notionhq/client");
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import Script from "next/script";
@@ -244,33 +244,33 @@ export default function Goods({ list }) {
 }
 
 // notion API
-export async function getStaticProps() {
-  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+// export async function getStaticProps() {
+//   const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-  const response = await notion.databases.query({
-    database_id: process.env.NOTION_GOODS_ID,
-    filter: {
-      and: [
-        {
-          property: "Display",
-          checkbox: {
-            equals: true,
-          },
-        },
-      ],
-    },
-    sorts: [
-      {
-        property: "Created",
-        direction: "descending",
-      },
-    ],
-  });
+//   const response = await notion.databases.query({
+//     database_id: process.env.NOTION_GOODS_ID,
+//     filter: {
+//       and: [
+//         {
+//           property: "Display",
+//           checkbox: {
+//             equals: true,
+//           },
+//         },
+//       ],
+//     },
+//     sorts: [
+//       {
+//         property: "Created",
+//         direction: "descending",
+//       },
+//     ],
+//   });
 
-  return {
-    props: {
-      list: response.results,
-    },
-    revalidate: 5,
-  };
-}
+//   return {
+//     props: {
+//       list: response.results,
+//     },
+//     revalidate: 5,
+//   };
+// }

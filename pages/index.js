@@ -10,7 +10,7 @@ import styles from "../pages/index.module.css";
 import toast, { Toaster } from "react-hot-toast";
 import OnboardingCard from "../components/onboardingCard";
 import { motion, AnimatePresence } from "framer-motion";
-const { Client } = require("@notionhq/client");
+// const { Client } = require("@notionhq/client");
 import Script from "next/script";
 
 export default function Home({ updatesList, goodsList, readingListList }) {

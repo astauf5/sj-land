@@ -2,7 +2,7 @@ import Head from "next/head";
 import util from "../styles/util.module.css";
 import React, { useEffect } from "react";
 import NewsletterTile from "../components/tiles/newsletterTile";
-const { Client } = require("@notionhq/client");
+// const { Client } = require("@notionhq/client");
 import Script from "next/script";
 
 export default function Newsletters({ list }) {
@@ -68,33 +68,33 @@ export default function Newsletters({ list }) {
   );
 }
 //notion API
-export async function getStaticProps() {
-  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+// export async function getStaticProps() {
+//   const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-  const response = await notion.databases.query({
-    database_id: process.env.NOTION_NEWSLETTERS_ID,
-    filter: {
-      and: [
-        {
-          property: "Display",
-          checkbox: {
-            equals: true,
-          },
-        },
-      ],
-    },
-    sorts: [
-      {
-        property: "Order",
-        direction: "ascending",
-      },
-    ],
-  });
+//   const response = await notion.databases.query({
+//     database_id: process.env.NOTION_NEWSLETTERS_ID,
+//     filter: {
+//       and: [
+//         {
+//           property: "Display",
+//           checkbox: {
+//             equals: true,
+//           },
+//         },
+//       ],
+//     },
+//     sorts: [
+//       {
+//         property: "Order",
+//         direction: "ascending",
+//       },
+//     ],
+//   });
 
-  return {
-    props: {
-      list: response.results,
-    },
-    revalidate: 5,
-  };
-}
+//   return {
+//     props: {
+//       list: response.results,
+//     },
+//     revalidate: 5,
+//   };
+// }
